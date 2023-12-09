@@ -1,0 +1,92 @@
+body {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: "Space Grotesk", sans-serif;
+}
+#page {
+	display: flex;
+	justify-content: space-between;
+}
+#bg-image {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+#left {
+	width: 400px;
+	height: auto;
+}
+
+#right {
+	display: flex;
+	/* border: 1px solid black; Add this line to set a border */
+	gap: 10px;
+	align-items: center;
+	margin-right: 300px;
+}
+
+#form {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+    gap: 4px;
+    align-items: baseline;
+}
+
+.form-row {
+	display: flex;
+    gap: 20px;
+}
+
+.long-input {
+	width: 400px;
+}
+
+.med-input {
+	width: 220px;
+}
+
+.small-input {
+	width: 70px;
+}
+
+.input-height {
+	height: 45px;
+}
+
+input {
+	border-radius: 8px;
+	border: 1px solid #cccccc;
+	color: #464444;
+	box-sizing: border-box;
+	padding: 8px;
+}
+
+input::placeholder {
+	color: #aaa9a9;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+#submit-button {
+	border-radius: 7px;
+	background-color: #220930;
+	color: white;
+	padding: 10px;
+    width: 350px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+label {
+    font-size: smaller;
+    padding: 3px;
+    font-weight: 500;
+}
