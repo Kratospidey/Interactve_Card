@@ -6,22 +6,20 @@ body {
 }
 #page {
 	display: flex;
-	justify-content: space-between;
 	gap: 400px;
 	min-height: 100vh;
 }
-#bg-image {
-	height: 100%;
-	width: 100%;
-	object-fit: cover;
-}
 
 #left {
-	flex: 1; /* Adjust the flex ratio to control the width */
-	background-image: url('./images/bg-main-desktop.png');
+	flex: 2; /* Adjust the flex ratio to control the width */
+	background-image: url("./images/bg-main-desktop.png");
 	background-size: cover;
 	background-position: center;
 	background-repeat: repeat-y;
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	position: relative;
 }
 
 #right {
@@ -36,20 +34,20 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: 30px;
-    justify-content: center;
-    align-items: center;
+	justify-content: center;
+	align-items: center;
 }
 
 .form-group {
 	display: flex;
 	flex-direction: column;
-    gap: 4px;
-    align-items: baseline;
+	gap: 4px;
+	align-items: baseline;
 }
 
 .form-row {
 	display: flex;
-    gap: 20px;
+	gap: 20px;
 }
 
 .long-input {
@@ -78,7 +76,7 @@ input {
 
 input::placeholder {
 	color: #aaa9a9;
-    font-family: "Space Grotesk", sans-serif;
+	font-family: "Space Grotesk", sans-serif;
 }
 
 #submit-button {
@@ -86,12 +84,33 @@ input::placeholder {
 	background-color: #220930;
 	color: white;
 	padding: 10px;
-    width: 350px;
-    font-family: "Space Grotesk", sans-serif;
+	width: 350px;
+	font-family: "Space Grotesk", sans-serif;
 }
 
 label {
-    font-size: smaller;
-    padding: 3px;
-    font-weight: 500;
+	font-size: smaller;
+	padding: 3px;
+	font-weight: 500;
+}
+
+#front-card,
+#back-card {
+	position: absolute;
+	/* Use top, right, bottom, left properties to position your images. */
+	/* Example for the front card: */
+	width: 25vw; /* 20% of the viewport width */
+	/* Adjust top and left as a percentage of the containing element */
+	top: 20%; /* Adjust as necessary */
+	left: 45%; /* Adjust as necessary */
+	/* You can add box-shadow, border-radius, etc., to match the design */
+	transition: box-shadow 0.5s;
+	box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+	border-radius: 15px; /* Adjust this to match your card's border-radius */
+	overflow: visible; /* Ensure it's visible */
+}
+
+#back-card {
+	top: 50%;
+	left: 60%;
 }
