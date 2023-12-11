@@ -79,7 +79,8 @@ input::placeholder {
 	font-family: "Space Grotesk", sans-serif;
 }
 
-#submit-button {
+#submit-button,
+#complete-button {
 	border-radius: 7px;
 	background-color: #220930;
 	color: white;
@@ -113,4 +114,29 @@ label {
 #back-card {
 	top: 50%;
 	left: 60%;
+}
+
+.error-border {
+	border: 1px solid red;
+}
+
+.error-message {
+	color: red;
+	font-size: 0.75rem; /* Adjust the size as needed */
+	display: none; /* Hide by default */
+}
+
+#completed {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#complete-heading {
+	color: hsl(278, 68%, 11%);
+	margin-bottom: -5px;
+}
+
+#complete-subtext {
+	color: hsl(279, 6%, 55%);
 }
