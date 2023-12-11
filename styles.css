@@ -141,7 +141,7 @@ label {
 	color: hsl(279, 6%, 55%);
 }
 
-@media only screen and (max-width: 376px) {
+@media only screen and (max-width: 1051px) {
 	/* Adjust the main page layout */
 	#page {
 		display: flex;
@@ -229,11 +229,9 @@ label {
 	}
 }
 
-/* * {
-	border: 1px solid red; 
-} */
 
-@media (min-width: 768px) {
+
+@media (min-width: 1051px) {
 	#front-card {
 		order: 1; /* On desktop, the front card should appear first */
 	}
