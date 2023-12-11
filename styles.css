@@ -140,3 +140,105 @@ label {
 #complete-subtext {
 	color: hsl(279, 6%, 55%);
 }
+
+@media only screen and (max-width: 376px) {
+	/* Adjust the main page layout */
+	#page {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 100px;
+	}
+
+	#left {
+		background-image: url("./images/bg-main-mobile.png");
+		background-size: cover;
+		background-position: center;
+		background-repeat: repeat-x;
+		display: flex;
+		flex-direction: column;
+		min-height: 150px; /* Or whatever minimum height is appropriate */
+		padding: 10px; /* Add padding to ensure the div is visible */
+		width: 100%; /* Full width for mobile */
+		margin-right: 0;
+		justify-content: center;
+		align-items: center; /* To center align the content */
+		/* Remove any large margins or gaps that may be pushing the div off-screen */
+		position: relative;
+		margin: 0;
+	}
+
+	#front-card,
+	#back-card {
+		position: absolute;
+		/* Use top, right, bottom, left properties to position your images. */
+		/* Example for the front card: */
+		width: 40vh; /* 20% of the viewport width */
+		/* Adjust top and left as a percentage of the containing element */
+		top: 60%; /* Adjust as necessary */
+		left: 10%; /* Adjust as necessary */
+		/* You can add box-shadow, border-radius, etc., to match the design */
+		transition: box-shadow 0.5s;
+		box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+		border-radius: 15px; /* Adjust this to match your card's border-radius */
+		overflow: visible; /* Ensure it's visible */
+	}
+
+	#back-card {
+		top: 26%; /* Adjust as necessary */
+		left: 20%; /* Adjust as necessary */
+	}
+
+	#form {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100vw;
+	}
+
+	/* Adjust individual form sections if necessary */
+	.form-row {
+		flex-direction: row; /* Stack the elements vertically */
+		gap: 10px; /* Adjust the gap between elements */
+	}
+
+	.long-input {
+		width: 300px;
+	}
+	.med-input {
+		width: 130px;
+	}
+
+	.small-input {
+		width: 65px;
+	}
+
+	#submit-button {
+		width: 300px;
+	}
+
+	#completed {
+		display: flex;
+		flex-direction: column;
+		margin-left: 50%;
+	}
+
+	#complete-button {
+		width: 300px;
+	}
+}
+
+/* * {
+	border: 1px solid red; 
+} */
+
+@media (min-width: 768px) {
+	#front-card {
+		order: 1; /* On desktop, the front card should appear first */
+	}
+
+	#back-card {
+		order: 2; /* On desktop, the back card should appear second */
+	}
+}

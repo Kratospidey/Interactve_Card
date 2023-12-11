@@ -200,11 +200,19 @@ function applyErrorStylesForDate(
 ) {
 	const errorElement = document.getElementById(errorElementId);
 	if (
-		expMonthElement.value.trim() === "" ||
+		expMonthElement.value.trim() === "" &&
 		expYearElement.value.trim() === ""
 	) {
 		expMonthElement.classList.add("error-border");
 		expYearElement.classList.add("error-border");
+		errorElement.style.display = "block";
+	} else if (expMonthElement.value.trim() === "") {
+		expMonthElement.classList.add("error-border");
+		expYearElement.classList.remove("error-border");
+		errorElement.style.display = "block";
+	} else if (expYearElement.value.trim() === "") {
+		expYearElement.classList.add("error-border");
+		expMonthElement.classList.remove("error-border");
 		errorElement.style.display = "block";
 	} else {
 		expMonthElement.classList.remove("error-border");
