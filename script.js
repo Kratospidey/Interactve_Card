@@ -4,7 +4,6 @@ const cardNumber = document.querySelector("#card-number");
 const expMonth = document.querySelector("#exp-month");
 const expYear = document.querySelector("#exp-year");
 const cvc = document.querySelector("#cvc");
-let cardNumberCount = 0;
 
 document.getElementById("completed").style.display = "none";
 
@@ -12,48 +11,37 @@ let validCardName = () => {
 	for (let i = 0; i < cardName.value.length; i++) {
 		const charCode = cardName.value.charCodeAt(i);
 		if (
-			!(charCode > 64 && charCode < 91) && // Not uppercase A-Z
-			!(charCode > 96 && charCode < 123) && // Not lowercase a-z
-			!(charCode === 32) // Not a space character
+			!(charCode > 64 && charCode < 91) &&
+			!(charCode > 96 && charCode < 123) &&
+			!(charCode === 32)
 		) {
-			console.log("false");
 			return false;
 		}
 	}
-	console.log("true");
 	return true;
 };
 
 let handleCardNameInput = (e) => {
 	const value = e.target.value;
 
-	//  Regex pattern that allows uppercase and lowercase letters, spaces, hyphens, and apostrophes
 	const pattern = /^[A-Za-z\s'-]+$/;
 
 	if (!pattern.test(value) && value !== "") {
-		// If the input doesn't match the pattern and is not empty, invalidate the input
-		// Here we could remove the last character or show a validation message instead of logging to the console
-		console.log("Invalid character in card name");
-		// Remove the last character
 		e.target.value = value.slice(0, -1);
 	}
 };
 
 let validCardNumber = () => {
-	// Remove all spaces from the input for raw processing and count
 	const rawCardNumber = cardNumber.value.replace(/\s+/g, "");
 	const isNumeric = /^\d+$/.test(rawCardNumber);
 
-	// Format the card number with spaces after every 4 digits
 	const formattedCardNumber = rawCardNumber.match(/.{1,4}/g)?.join(" ") ?? "";
+	// using the null coalescing operator to return an empty string if no value exists
 
-	// Update the value of the input with the formatted card number
-	// Prevents cursor jumping by not updating the input value unnecessarily
 	if (cardNumber.value !== formattedCardNumber) {
 		cardNumber.value = formattedCardNumber;
 	}
 
-	// The input is valid if it's numeric and has exactly 16 digits
 	const isValidLength = rawCardNumber.length === 16;
 
 	return isNumeric && isValidLength;
@@ -100,7 +88,15 @@ let handleExpMonthInput = (e) => {
 		"End",
 	];
 
-	if (specialKeys.includes(e.key) || e.ctrlKey || e.metaKey) {
+	if (
+		specialKeys.includes(e.key) ||
+		e.ctrlKey ||
+		e.metaKey ||
+		e.key === "ArrowLeft" ||
+		e.key === "ArrowRight" ||
+		e.key === "Home" ||
+		e.key === "End"
+	) {
 		return;
 	}
 
@@ -123,13 +119,21 @@ expMonth.addEventListener("keydown", handleExpMonthInput);
 let validExpYear = () => {
 	const currentYear = new Date().getFullYear();
 	const year = parseInt(expYear.value, 10);
-	return year >= currentYear && year <= currentYear + 20; // ! Assuming a card is not valid more than 20 years into the future
+	return year >= currentYear;
 };
 
 let handleExpYearInput = (e) => {
 	const specialKeys = ["Backspace", "Delete", "Tab", "Escape", "Enter"];
 
-	if (specialKeys.includes(e.key) || e.ctrlKey || e.metaKey) {
+	if (
+		specialKeys.includes(e.key) ||
+		e.ctrlKey ||
+		e.metaKey ||
+		e.key === "ArrowLeft" ||
+		e.key === "ArrowRight" ||
+		e.key === "Home" ||
+		e.key === "End"
+	) {
 		return;
 	}
 
@@ -158,10 +162,17 @@ let handleCVCInput = (e) => {
 		"End",
 	];
 
-	if (specialKeys.includes(e.key) || e.ctrlKey || e.metaKey) {
+	if (
+		specialKeys.includes(e.key) ||
+		e.ctrlKey ||
+		e.metaKey ||
+		e.key === "ArrowLeft" ||
+		e.key === "ArrowRight" ||
+		e.key === "Home" ||
+		e.key === "End"
+	) {
 		return;
 	}
-
 	// Get current value and simulate the result after the keypress
 	let currentValue = e.target.value;
 	let simulatedValue = currentValue + e.key;
@@ -170,16 +181,6 @@ let handleCVCInput = (e) => {
 	if (!/^\d*$/.test(simulatedValue) || simulatedValue.length > 4) {
 		e.preventDefault();
 	}
-};
-
-let validInput = () => {
-	return (
-		validCardName() &&
-		validCardNumber &&
-		validExpMonth &&
-		validExpYear &&
-		validCVC
-	);
 };
 
 function applyErrorStyles(inputElement, errorElementId) {
@@ -247,6 +248,7 @@ expYear.addEventListener("input", validExpYear);
 expYear.addEventListener("keydown", handleExpYearInput);
 cvc.addEventListener("input", validCVC);
 cvc.addEventListener("keydown", handleCVCInput);
+
 // Event listener for form submission
 document.getElementById("form").addEventListener("submit", function (e) {
 	e.preventDefault(); // Prevent the default form submission
@@ -257,13 +259,15 @@ document.getElementById("form").addEventListener("submit", function (e) {
 	const isExpMonthValid = validExpMonth();
 	const isExpYearValid = validExpYear();
 	const isCVCValid = validCVC();
-	console.log(
-		isCardNameValid,
-		isCardNumberValid,
-		isExpMonthValid,
-		isExpYearValid,
-		isCVCValid
-	);
+
+	// printing if all true for debugging
+	// console.log(
+	// 	isCardNameValid,
+	// 	isCardNumberValid,
+	// 	isExpMonthValid,
+	// 	isExpYearValid,
+	// 	isCVCValid
+	// );
 
 	// Apply error styles based on validation
 	applyErrorStyles(cardName, "cardholder-name-error");
