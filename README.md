@@ -1,5 +1,6 @@
 
 Challenge/Project for [GDSC NMIMS MPSTME, Mumbai](https://github.com/GDSC-NMIMS-MPSTME-Mumbai)
+Baseed on [Frontend Mentor | Interactive Card](https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw)
 
 [Live Preview](https://kratospidey.github.io/Interactve_Card/)
 
