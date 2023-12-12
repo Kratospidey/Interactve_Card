@@ -5,8 +5,6 @@ const expMonth = document.querySelector("#exp-month");
 const expYear = document.querySelector("#exp-year");
 const cvc = document.querySelector("#cvc");
 
-document.getElementById("completed").style.display = "none";
-
 let validCardName = () => {
 	for (let i = 0; i < cardName.value.length; i++) {
 		const charCode = cardName.value.charCodeAt(i);
