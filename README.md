@@ -69,12 +69,19 @@ Baseed on [Frontend Mentor | Interactive Card](https://www.frontendmentor.io/cha
 # Caveats
 
 > I've just made the design for 1440px and 375px
+> 
 > while it can scale dynamically up and down
+> 
 > it doesn't look the best to say the least 💀
+> 
 > but haven't learned proper dynamic sizing which also looks good and fluid so it is what it is
+> 
 > oh and cvc (card verification code) also accepts 4 digit pins cause amex cards have 4 digit codes
+> 
 > and the form submission only works if you add the current year or a later, you can't time travel to the past 💀
+> 
 > oh and rather just letting user fuck up and make any error i've just prevented the ability for user to give wrong input so the only error possible is the empty error
+> 
 > just made more sense and looks/works neat
 
 
